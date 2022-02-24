@@ -1,0 +1,23 @@
+<launch>
+
+  <group ns="right">
+    <node pkg="turtlesim" name="turtlesim" type="turtlesim_node"/>
+    <node pkg="turtlesim" name="draw_square" type="draw_square"/>
+  </group>
+
+  <node pkg="turtlesim" name="turtlesim_node1" type="turtlesim_node"/>
+  <node pkg="turtlesim" name="draw_square1" type="draw_square"/>
+  <node pkg="rqt_graph" name="rqt_graph" type="rqt_graph"/>
+
+
+
+  <node pkg="turtlesim" name="draw_square" type="draw_square">  
+    <remap from="turtle1/pose" to="turtle/pose2"/>
+    <remap from="turtle1/cmd_vel" to="turtle/cmd_vel2"/>
+  </node>
+
+  <node pkg="turtlesim" name="turtlesim" type="turtlesim_node">
+    <remap from="turtle1/cmd_vel" to="turtle/cmd_vel2"/>
+    <remap from="turtle1/pose" to="turtle/pose2"/>
+  </node>
+</launch>
